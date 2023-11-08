@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Metro Journey Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            margin: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        select optgroup {
+            font-weight: bold;
+        }
+
+        select option {
+            padding: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <h1>Metro Journey Calculator</h1>
+
+    <form method="post" action="/r">
+        <label for="boarding_station">Select Boarding Station:</label>
+        <select name="boarding_station" id="boarding_station">
+            <optgroup label="Purple Line" style="color: purple;">
+                {% for station in purple_line_stations %}
+                <option value="{{ station }}" style="color: purple;">{{ station }}</option>
+                {% endfor %}
+            </optgroup>
+            <optgroup label="Green Line" style="color: green;">
+                {% for station in green_line_stations %}
+                <option value="{{ station }}" style="color: green;">{{ station }}</option>
+                {% endfor %}
+            </optgroup>
+        </select>
+
+        <label for="destination_station">Select Destination Station:</label>
+        <select name="destination_station" id="destination_station">
+            <optgroup label="Purple Line" style="color: purple;">
+                {% for station in purple_line_stations %}
+                <option value="{{ station }}" style="color: purple;">{{ station }}</option>
+                {% endfor %}
+            </optgroup>
+            <optgroup label="Green Line" style="color: green;">
+                {% for station in green_line_stations %}
+                <option value="{{ station }}" style="color: green;">{{ station }}</option>
+                {% endfor %}
+            </optgroup>
+        </select>
+
+        <input type="submit" value="Calculate">
+    </form>
+</body>
+</html>
